@@ -1,13 +1,13 @@
 import React, { useState } from "react";
+import '../index.css'; // Import CSS file
 
 const SignupPage = () => {
-
-
   const [formData, setFormData] = useState({
     username: "",
     email: "",
     password: "",
-    channelname: "",
+    confirmedPassword: "",
+    channetname: "",
     contentType: ""
   });
 
@@ -44,12 +44,13 @@ const SignupPage = () => {
   };
 
   return (
-    <div>
-      <h2>Sign Up</h2>
+    <div className="signup-container">
+      <h2 className="signup-title">Sign Up</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="username">Username:</label>
           <input
+            className="signup-input"
             type="text"
             id="username"
             name="username"
@@ -60,6 +61,7 @@ const SignupPage = () => {
         <div>
           <label htmlFor="email">Email:</label>
           <input
+            className="signup-input"
             type="email"
             id="email"
             name="email"
@@ -70,6 +72,7 @@ const SignupPage = () => {
         <div>
           <label htmlFor="password">Password:</label>
           <input
+            className="signup-input"
             type="password"
             id="password"
             name="password"
@@ -80,6 +83,7 @@ const SignupPage = () => {
         <div>
           <label htmlFor="confirmedPassword">Confirm Password:</label>
           <input
+            className="signup-input"
             type="password"
             id="confirmedPassword"
             name="confirmedPassword"
@@ -88,8 +92,9 @@ const SignupPage = () => {
           />
         </div>
         <div>
-          <label htmlFor="channetname">Channet Name:</label>
+          <label htmlFor="channetname">Channel Name:</label>
           <input
+            className="signup-input"
             type="text"
             id="channetname"
             name="channetname"
@@ -100,6 +105,7 @@ const SignupPage = () => {
         <div>
           <label htmlFor="contentType">Content Type:</label>
           <input
+            className="signup-input"
             type="text"
             id="contentType"
             name="contentType"
@@ -107,7 +113,7 @@ const SignupPage = () => {
             onChange={handleChange}
           />
         </div>
-        <button type="submit">Sign Up</button>
+        <button type="submit" className="signup-button">Sign Up</button>
       </form>
     </div>
   );

@@ -1,9 +1,15 @@
-import React from 'react'
+import React from 'react';
+import '../index.css';
 
-function Navcomp({ userId, role }) {
+const Navcomp = ({ userId, role }) => {
   return (
-    <div>Navbar</div>
-  )
+    <ul className="nav-links">
+      <li><a href="#">Dashboard</a></li>
+      <li className="center"><a href="#">Portfolio</a></li>
+      <li className="upward"><a href="#">Services</a></li>
+      <li className="forward"><a href="#">Feedback</a></li>
+    </ul>
+  );
 }
 
-export default Navcomp
+export default Navcomp;

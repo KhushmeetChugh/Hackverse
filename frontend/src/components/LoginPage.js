@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import '../index.css'; // Import CSS file
 
 const LoginPage = ({ loginHandler }) => {
   const [email, setEmail] = useState('');
@@ -17,12 +18,13 @@ const LoginPage = ({ loginHandler }) => {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
+    <div className="login-container">
+      <h2 className="login-title">Login</h2>
       <form onSubmit={handler}>
         <div>
           <label htmlFor="email">Email:</label>
           <input
+            className="login-input"
             type="email"
             id="email"
             placeholder="Email"
@@ -33,17 +35,18 @@ const LoginPage = ({ loginHandler }) => {
         <div>
           <label htmlFor="password">Password:</label>
           <input
+            className="login-input"
             type={showPassword ? 'text' : 'password'}
             id="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="button" onClick={() => setShowPassword(!showPassword)}>
+          <button type="button" className="toggle-password-button" onClick={() => setShowPassword(!showPassword)}>
             {showPassword ? 'Hide' : 'Show'}
           </button>
         </div>
-        <button type="submit">Sign In</button>
+        <button type="submit" className="login-button">Sign In</button>
       </form>
     </div>
   );
