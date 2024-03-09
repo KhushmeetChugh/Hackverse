@@ -46,22 +46,26 @@ const uploadMiddleware = async (req, res, next) => {
 
 const signup=async(req,res)=>{
     try{
-        const {username,password,email}=req.body;
-        // console.log("username"+username+"pasw"+password+"email"+email);
+      const { username, email, password, channelname, contentType } = req.body;
+        console.log("username"+username+"pasw"+password+"email"+email,"channelname="+channelname+"ct="+contentType);
         const existingUser = await User.findOne({ email });
+       
         if(existingUser){
             res.status(401).json({message:"User already Exists"});
             return;
         }
-        else{
+        else{          
         const hashedPassword = await bcrypt.hash(password, 10);
-        const newUser=new User({
-            username,
-            password:hashedPassword,
-            email,
-            role:"user",
-        })
+        console.log("imhere"+hashedPassword)
+        const newUser = new User({
+          username,
+          email,
+          password: hashedPassword,
+          channelName: channelname,
+          contentType,
+      })
         await newUser.save();
+        console.log("imhere")
         res.status(200).json({message:"Signup Success"});
     }
     } catch(error){
@@ -87,6 +91,7 @@ const login = async(req , res)=>{
       }
       else{
         const token=jwt.sign({email:user.email,userId:user._id},'your-secret-key', { expiresIn: '1h' });
+        console.log("login success");
         res.cookie('Login',token,{
           httpOnly: false,
           secure: true,

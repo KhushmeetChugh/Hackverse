@@ -2,13 +2,12 @@ import React, { useState } from "react";
 
 const SignupPage = () => {
 
-  
+
   const [formData, setFormData] = useState({
     username: "",
     email: "",
     password: "",
-    confirmedPassword: "",
-    channetname: "",
+    channelname: "",
     contentType: ""
   });
 

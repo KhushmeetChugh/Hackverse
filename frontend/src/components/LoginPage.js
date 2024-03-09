@@ -9,8 +9,9 @@ const LoginPage = ({ loginHandler }) => {
     try {
       await loginHandler(email, password);
       // Redirect or handle successful login
+      console.log("login success")
     } catch (error) {
-      console.error("Login failed:", error);
+      console.error(error);
       // Handle login failure if needed
     }
   };

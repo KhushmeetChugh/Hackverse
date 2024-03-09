@@ -43,7 +43,7 @@ function App() {
     const responseData = await response.json();
     if (response.ok) {
       const { uid, role, token } = responseData;
-      window.location.href = "/";
+      // window.location.href = "/";
       // console.log("reached here")
     
       // Set token in state
@@ -58,6 +58,7 @@ function App() {
       // Redirect to home page
       // console.log("chl toh raha hai")
       // // Return user data
+      console.log("logged in success");
       return {
         uid: uid,
         role: role,
